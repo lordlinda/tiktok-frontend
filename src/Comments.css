@@ -1,0 +1,24 @@
+.comments__posts {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5px 0px;
+}
+.comments__posts > div {
+  margin-left: 10px;
+}
+.comment__username {
+  font-weight: 500;
+}
+.comments__modal > .MuiBackdrop-root {
+  background-color: transparent;
+}
+.comments__modal > .MuiDialog-container > .MuiDialog-paperWidthSm {
+  width: -webkit-fill-available !important;
+}
+
+.comments__modal > .MuiDialog-container > .MuiDialog-paper {
+  position: absolute !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+}

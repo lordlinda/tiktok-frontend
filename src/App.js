@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Home from "./Home";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CreatePost from "./CreatePost";
+import Profile from "./Profile";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import { connect } from "react-redux";
+import { getUserData } from "./redux/actions/userActions";
+import { getPosts } from "./redux/actions/postActions";
+import SinglePost from "./SinglePost";
 
-function App() {
+function App(props) {
+  const checkAuth = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return false;
+    }
+    props.getUserData();
+
+    return true;
+  };
+  const AuthRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        checkAuth() ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: "/" }} />
+        )
+      }
+    />
+  );
+  useEffect(() => {
+    props.getPosts();
+  }, [props.posts.length]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ToastContainer />
+        <Switch>
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
+          <AuthRoute exact path="/timeline" component={Home} />
+          <AuthRoute exact path="/post/story" component={CreatePost} />
+          <AuthRoute exact path="/profile/:userId" component={Profile} />
+          <AuthRoute exact path="/post/:id" component={SinglePost} />
+        </Switch>
+      </Router>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  posts: state.post.posts,
+});
+
+export default connect(mapStateToProps, { getUserData, getPosts })(App);

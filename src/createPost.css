@@ -1,0 +1,28 @@
+.createPost__header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.createPost__header > div {
+    text-align: center;
+    font-weight: 800;
+}
+.createPost{
+    padding: 20px;
+    text-align: center;
+}
+
+.createPost__form{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.createPost__button{
+    margin-top: 20px !important;
+}
+.createPost__form > div{
+    display: flex;
+    flex-direction: column;
+}

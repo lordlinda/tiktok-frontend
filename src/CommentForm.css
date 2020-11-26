@@ -1,0 +1,12 @@
+.commentForm__form {
+  display: flex;
+}
+.commentForm__input {
+  border: 1px solid #dbdbdb;
+  outline-width: 0;
+  flex: 1;
+}
+
+.commentForm__button {
+  border: none;
+}

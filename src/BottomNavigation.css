@@ -1,0 +1,32 @@
+.bottomNavigation__menu{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid #dbdbdb;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    
+}
+.bottomNavigation{
+    background-color: red;
+}
+
+.MuiIconButton-label > a{
+    text-decoration: none;
+    color:#000
+}
+
+.bottomNavigation__post > input {
+display: none;
+}
+.notification__modal > .MuiDialog-container > .MuiDialog-paperWidthSm {
+width: -webkit-fill-available !important;
+}
+
+.notification__modal > .MuiDialog-container > .MuiDialog-paper{
+    position: absolute !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+}
