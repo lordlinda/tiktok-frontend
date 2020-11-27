@@ -42,7 +42,7 @@ const BottomNavigation = (props) => {
     setUnReadNotifications(
       props.notifications.filter((notification) => notification.read === false)
     );
-  }, [props.notifications.length]);
+  }, [props.notifications.length, unreadNotifications.length]);
 
   return (
     <>

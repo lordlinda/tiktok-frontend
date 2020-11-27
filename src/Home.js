@@ -29,11 +29,11 @@ function Home(props) {
 
       <div className="app__videos">
         {!loading ? (
-          <FlipMove>
+          <>
             {!loading && posts.length > 0
               ? posts.map((post) => <Post post={post} key={post._id} />)
               : null}
-          </FlipMove>
+          </>
         ) : (
           <div
             style={{

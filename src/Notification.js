@@ -9,7 +9,10 @@ function Notification(props) {
   const handlePost = () => {
     console.log("clicked");
     console.log(props);
-    props.history.push(`/post/${postId}`, props.notification);
+    if (postId) {
+      props.history.push(`/post/${postId}`, props.notification);
+    } else {
+    }
   };
   return (
     <div className="notification" onClick={handlePost}>
@@ -29,7 +32,7 @@ function Notification(props) {
           <div className="notification__info">
             <p>{sender} shared your post</p>
           </div>
-        ) : type === " follow" ? (
+        ) : type === "follow" ? (
           <div className="notification__info">
             <p>{sender} started following you </p>
           </div>

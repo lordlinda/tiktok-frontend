@@ -1,7 +1,7 @@
 .videoFooter {
   position: relative;
-  color: black;
-  bottom: 200px;
+  color: white;
+  bottom: 220px;
   display: flex;
   padding: 10px;
 }
@@ -14,7 +14,7 @@
 }
 .videoFooter__text > a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .videoFooter__text > h3 {
   padding-bottom: 10px;

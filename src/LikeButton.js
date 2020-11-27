@@ -13,7 +13,6 @@ export const likeButton = (props) => {
       postId: props.id,
       userId: localStorage.user,
     };
-    console.log(like);
     props.likePost(like);
   };
 

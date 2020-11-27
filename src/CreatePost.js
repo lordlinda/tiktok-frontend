@@ -35,7 +35,7 @@ function CreatePost(props) {
 
       props.createPost(variables, props.history);
       setData({
-        title: "",
+        song: "",
         description: "",
       });
     }

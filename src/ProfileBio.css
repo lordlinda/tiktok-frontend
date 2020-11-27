@@ -11,7 +11,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.profileBio__headerLeft > .MuiAvatar-root {
+  width: 80px;
+  height: 80px;
+}
 .profileBio__icons > .MuiButtonBase-root {
   text-transform: inherit;
   font-size: x-small;

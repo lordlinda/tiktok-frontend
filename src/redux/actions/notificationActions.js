@@ -24,7 +24,7 @@ export const createNotification = (data, type) => async (dispatch) => {
         axios
           .get(`https://tictokclone.herokuapp.com/users/getUser/${data.userId}`)
           .then((res) => {
-            if (post.data.data.channel !== localStorage.userId) {
+            if (post.data.data.channel !== localStorage.user) {
               const notification = {
                 postId: data.postId,
                 receipient: post.data.data.channel,

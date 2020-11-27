@@ -12,11 +12,9 @@ export const getLikes = () => async (dispatch) => {
 };
 
 export const likePost = (like) => async (dispatch) => {
-  console.log(like);
   await axios
     .post("https://tictokclone.herokuapp.com/likes/likePost", like)
     .then((res) => {
-      console.log(res);
       dispatch({
         type: LIKE_POST,
         payload: res.data.data,
@@ -27,10 +25,14 @@ export const likePost = (like) => async (dispatch) => {
 
 export const unlikePost = (like) => async (dispatch) => {
   await axios
-    .delete(`https://tictokclone.herokuapp.com/likes/unlikePost/${like._id}`, {
-      like,
-    })
+    .patch(
+      `https://tictokclone.herokuapp.com/likes/unlikePost/${like._id}`,
+      like
+    )
     .then((res) => {
-      console.log(res);
+      dispatch({
+        type: UNLIKE_POST,
+        payload: like,
+      });
     });
 };
